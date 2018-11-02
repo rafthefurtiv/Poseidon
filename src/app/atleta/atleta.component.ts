@@ -26,6 +26,9 @@ export class AtletaComponent {
     public medaglieBronzoStaff = 0;
     public medagleOrostaff = 0;
 
+    public pathCover = 'https://firebasestorage.googleapis.com/v0/b/poseidon-8bcf8.appspot.com/o/ary.png?alt=media&token=82ece0d6-7665-4379-a1db-968e1d177ef4';
+    public pathImage = 'https://firebasestorage.googleapis.com/v0/b/poseidon-8bcf8.appspot.com/o/ary_image.png?alt=media&token=a563870c-b4bd-435c-beac-7d0995cdffe3';
+
 
 
     toString(){

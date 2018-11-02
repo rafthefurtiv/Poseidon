@@ -8,6 +8,7 @@ import {GaraComponent} from '../atleta/gara.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -17,10 +18,22 @@ import { HttpModule } from '@angular/http';
 })
 export class HomePage {
 
+  atleta = new AtletaComponent();
+
+  atleti = [];
+
+  atlKey = [];
+
+  message = '';
+
 
   constructor(public db: AngularFireDatabase, 
     public http: HttpClient
-  ){}
+  ){
+
+    this.caricaAll();
+
+  }
 
 
   insert(){
@@ -30,6 +43,8 @@ export class HomePage {
     var atl1 = AtletaComponent.makeAtletaProva();
 
     var savedAtl = this.db.list('atleti');
+
+    atl1.userName = atl1.userName + Math.floor(Math.random()*20)+1;
 
     savedAtl.set(atl1.userName, atl1);
     
@@ -57,6 +72,17 @@ export class HomePage {
   getUtenteJson(username: string){
       return  this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/'+username+'.json');
   }
+
+
+  getUtente(username: string){
+    var savedAtl = new Observable<AtletaComponent>();
+    this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/'+ username +'.json').subscribe(
+      response => {
+        savedAtl = JSON.parse(JSON.stringify(response));
+          }
+      );
+      return savedAtl;
+  }
 // --------------------------------------------------------------------
 
 
@@ -77,6 +103,59 @@ export class HomePage {
          }
         }
     );
+  }
+
+
+
+
+
+
+  carica(username: string){
+    var savedAtl = new AtletaComponent();
+
+    this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/'+username+'.json').subscribe(
+    response => {
+      savedAtl = JSON.parse(JSON.stringify(response));
+        if(savedAtl == null){
+          console.log('Step null');
+        }
+        else{
+          this.atleta = savedAtl;
+         }
+        }
+    );
+
+  }
+
+
+
+
+  caricaAll(){
+    var tempAtleti = [];
+
+    this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/.json').subscribe(
+    response => {
+      tempAtleti = JSON.parse(JSON.stringify(response));
+
+      //console.log(JSON.stringify(response));
+      console.log(tempAtleti['UtProva'].pathCover);
+
+      Object.keys(tempAtleti).forEach(key=> {
+        tempAtleti[key];
+        });
+
+        if(tempAtleti == null){
+          console.log('Step null');
+        }
+        else{
+          this.atleti = tempAtleti;
+          this.atlKey = Object.keys(this.atleti);
+
+          console.log(this.atleti.length);
+         }
+        }
+    );
+
   }
 
 

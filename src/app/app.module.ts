@@ -19,6 +19,9 @@ import { HttpModule } from '@angular/http';
 
 import { environment } from '../environment';
 
+
+import { NavController, NavParams } from 'ionic-angular';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

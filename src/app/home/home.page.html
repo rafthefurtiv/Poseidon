@@ -1,22 +1,32 @@
+
+
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Records</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
 
 
+  <div style="text-align: center">
+    <a href="/scheda">
+    <img  src="{{atleta.pathCover}}" alt="Smiley face" width="25%">
+  </a>
+  </div>
 
-  <button ion-button (click)="insert()" class="button button-block"> Insert </button>
+     <a> 
+  <img *ngFor="let key of atlKey; let i = index" src="{{atleti[key].pathCover}}" alt="{{atleti[key].userName}}" width="25%">
+</a> 
+
+<div>
+  <ion-button primary (click)="insert()"  class="button"> Insert </ion-button>
 
 
-  <button ion-button (click)="addGara()" class="button button-block"> Add Gara </button>
+  <ion-button primary (click)="addGara()" class="button"> Add Gara </ion-button>
 
 
-
+</div>
 
 </ion-content>
