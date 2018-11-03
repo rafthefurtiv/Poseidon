@@ -1,13 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>scheda</ion-title>
+    <ion-title style="text-align: center">Scheda</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
+<div 
+[ngStyle]="setMyStyles()"
 
-  {{atleta.userName}}
+>
+ <!-- <img style="padding: 0%; margin: -1%;" src="{{atleta.pathImage}}">
+-->
+{{atleta.userName}}
+
+</div>
+
+{{atleta.userName}}
+  
   
 
 </ion-content>
+
+
+
+<style>
+.scheda{
+  padding: 0%;
+  margin: 0%;
+  background-position: center;
+  background-size: cover; 
+
+
+}
+</style>
