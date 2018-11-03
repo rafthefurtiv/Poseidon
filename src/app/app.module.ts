@@ -15,18 +15,16 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'; 
-import { HttpModule } from '@angular/http';
 
 import { environment } from '../environment';
+import { NavController } from '@ionic/angular';
 
 
-import { NavController, NavParams } from 'ionic-angular';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    HttpModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -35,6 +33,7 @@ import { NavController, NavParams } from 'ionic-angular';
     HttpClient,
     StatusBar,
     SplashScreen,
+   // NavController,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

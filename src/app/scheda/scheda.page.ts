@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
+//import { NavController } from '@ionic/angular';
+import { SchedaProviderService } from '../scheda-provider.service';
+import { AtletaComponent } from '../atleta/atleta.component';
 
 @Component({
   selector: 'app-scheda',
@@ -9,9 +10,20 @@ import { NavController } from 'ionic-angular';
 })
 export class SchedaPage implements OnInit {
 
-  constructor() { }
+  atleta: AtletaComponent;
+
+  constructor(//public navCtrl: NavController,
+    public schedaService: SchedaProviderService
+     ) {
+
+
+
+
+      }
 
   ngOnInit() {
+    this.atleta = this.schedaService.atleta;
+    console.log("Debug: " + this.atleta.userName);
   }
 
 }

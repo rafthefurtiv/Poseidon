@@ -8,7 +8,11 @@ import {GaraComponent} from '../atleta/gara.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
+import { NavController } from '@ionic/angular';
+import { SchedaPage } from '../scheda/scheda.page';
+
+import { SchedaProviderService } from '../scheda-provider.service';
 
 
 @Component({
@@ -28,7 +32,9 @@ export class HomePage {
 
 
   constructor(public db: AngularFireDatabase, 
-    public http: HttpClient
+    public http: HttpClient,
+    public navCtrl: NavController,
+    public schedaService: SchedaProviderService
   ){
 
     this.caricaAll();
@@ -75,13 +81,14 @@ export class HomePage {
 
 
   getUtente(username: string){
-    var savedAtl = new Observable<AtletaComponent>();
+    /*var savedAtl = new Observable<AtletaComponent>();
     this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/'+ username +'.json').subscribe(
       response => {
         savedAtl = JSON.parse(JSON.stringify(response));
           }
       );
       return savedAtl;
+      */
   }
 // --------------------------------------------------------------------
 
@@ -160,6 +167,15 @@ export class HomePage {
 
 
 
+
+
+
+
+  public toScheda(atl: string){
+    this.schedaService.atleta = this.atleti[atl];
+    console.log("Debug 1: " + atl);
+    this.navCtrl.navigateForward('/scheda');
+    }
 
 
 

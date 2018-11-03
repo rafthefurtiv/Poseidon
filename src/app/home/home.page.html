@@ -11,13 +11,13 @@
 
 
   <div style="text-align: center">
-    <a href="/scheda">
-    <img  src="{{atleta.pathCover}}" alt="Smiley face" width="25%">
-  </a>
+  
+    <img  (click)="toScheda(atleta.pathCover)" src="{{atleta.pathCover}}" alt="Smiley face" width="25%">
+ 
   </div>
 
      <a> 
-  <img *ngFor="let key of atlKey; let i = index" src="{{atleti[key].pathCover}}" alt="{{atleti[key].userName}}" width="25%">
+  <img (click)="toScheda(key)" *ngFor="let key of atlKey; let i = index" src="{{atleti[key].pathCover}}" alt="{{atleti[key].userName}}" width="25%">
 </a> 
 
 <div>
