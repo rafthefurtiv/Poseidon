@@ -49,6 +49,7 @@ export class SchedaPage implements OnInit {
       'margin': '0%',
       'background-position': 'center',
       'background-size': 'cover',
+      'height' : '100%'
     };
     return styles;
 
