@@ -7,19 +7,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { SchedaPage } from './scheda.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: SchedaPage
-  }
-];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild([{ path: '', component: SchedaPage }])
   ],
   declarations: [SchedaPage]
 })

@@ -1,3 +1,6 @@
+
+
+
 <ion-header>
   <ion-toolbar>
     <ion-title style="text-align: center">Scheda</ion-title>
@@ -6,15 +9,23 @@
 
 <ion-content>
 
+
+
+
+
 <div 
 [ngStyle]="setMyStyles()"
 
 >
+
+<a href="/tabs/(scheda:scheda)">dsafsdf</a>
+
  <!-- <img style="padding: 0%; margin: -1%;" src="{{atleta.pathImage}}">
 -->
 
 </div>
 
+<div>
 {{atleta.userName}}
 {{atleta.userName}}
 {{atleta.userName}}
@@ -30,19 +41,27 @@
 {{atleta.userName}}
 {{atleta.userName}}
   
+
+</div>
+
+<ion-tabs>
+  <ion-tab label="Records" icon="home" href="/tabs/(home:home)">
+    <ion-router-outlet name="home"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Records Societari" icon="information-circle" href="/tabs/(about:about)">
+    <ion-router-outlet name="about"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Download PDF" icon="contacts" href="/tabs/(contact:contact)">
+    <ion-router-outlet name="contact"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Comunicazioni" icon="contacts" href="/tabs/(scheda:scheda)">
+    <ion-router-outlet name="scheda"></ion-router-outlet>
+  </ion-tab>
+</ion-tabs>
+
   
 
 </ion-content>
 
 
 
-<style>
-.scheda{
-  padding: 0%;
-  margin: 0%;
-  background-position: center;
-  background-size: cover; 
-
-
-}
-</style>

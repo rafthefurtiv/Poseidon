@@ -174,7 +174,7 @@ export class HomePage {
   public toScheda(atl: string){
     this.schedaService.atleta = this.atleti[atl];
     console.log("Debug 1: " + atl);
-    this.navCtrl.navigateForward('/scheda');
+    this.navCtrl.navigateForward('scheda');
     }
 
 

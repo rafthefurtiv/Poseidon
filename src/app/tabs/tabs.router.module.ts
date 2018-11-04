@@ -38,12 +38,11 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/(home:home)',
     pathMatch: 'full'
-  },
-  
-      {
-        path: 'scheda',
-        component: SchedaPage
-      }
+  },  
+  {
+    path: 'scheda',
+    component: SchedaPage
+  }
 ];
 
 @NgModule({
