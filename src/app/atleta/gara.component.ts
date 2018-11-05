@@ -10,6 +10,8 @@ export class GaraComponent {
 
     public tempo = 0;
 
+    public lunghezza = ''
+
 
 
 
@@ -19,6 +21,7 @@ export class GaraComponent {
         gara.categoria = 'M30';
         gara.nomeGara = '100SL';
         gara.tempo = 33.65;
+        gara.lunghezza = 'V.C.';
 
         return gara;
     }

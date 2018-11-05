@@ -17,4 +17,12 @@ import { SchedaPage } from './scheda.page';
   ],
   declarations: [SchedaPage]
 })
-export class SchedaPageModule {}
+export class SchedaPageModule {
+
+
+
+
+
+
+
+}

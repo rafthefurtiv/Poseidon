@@ -14,6 +14,8 @@ export class SchedaPage implements OnInit {
 
   atleta: AtletaComponent;
 
+  categoria;
+
   urlImage;
 
   constructor(//public navCtrl: NavController,
@@ -33,26 +35,113 @@ export class SchedaPage implements OnInit {
     console.log(this.urlImage);
 
     this.atleta = this.schedaService.atleta;
+
+
+    this.categoria = this.calcolaCategoria();
+  }
+
+
+  calcolaCategoria(){
+
+
+
+    return 'M30';
+  }
+
+
+
+  setMyStyles(){
+
+    let styles = {
+      'background-image': "url('assets/sfondo2.png'), url('assets/sfondo1.png')",
+
+      'padding': '0%',
+      'margin': '0%',
+      'background-position': 'center',
+      'background-size': 'contain',
+      'height' : '100%'
+    };
+    return styles;
+
+  }
+
+
+  setStyleAtleta(){
+
+    let styles = {
+      'background-image': this.urlImage,
+
+      'padding': '0%',
+      'margin': '0%',
+      'background-repeat': 'no-repeat',
+      'background-position': 'right bottom',
+      'background-size': '70%',
+      'height': '100%'
+
+    };
+    return styles;
+
+  }
+
+
+
+
+  setMyStylesSuperiore(){
+    let styles = {
+      'margin': '0%',
+      'padding': '1% 1% 6% 1%',
+      'background-image': 'url("assets/superiore.png")', 
+      'background-size': '100% 100%'
+    };
+    return styles;
+  }
+
+  setMyStylesInferiore(){
+    let styles = {
+      'margin': '0%',
+      'padding': '6% 1% 3% 2%',
+      'background-image': 'url("assets/inferiore.png")', 
+      'background-size': '100% 100%',
+      'position' : 'absolute',
+      'width': '100%',
+      'bottom': '0px'
+    };
+    return styles;
   }
 
 
 
 
 
-  setMyStyles(){
-    console.log("Debug style");
+  setMyStylesLaterale(){
 
     let styles = {
-      'background-image': this.urlImage + ", url('assets/sfondo1.png'), url('assets/sfondo2.png')",
-
-      'padding': '0%',
-      'margin': '0%',
-      'background-position': 'center',
-      'background-size': 'cover',
-      'height' : '100%'
+      
+      'margin': '0%', 
+      'background-image': 'url("assets/laterale.png")', 
+      'background-repeat': 'no-repeat', 
+      'background-size': '100% 100%',
+      'width': 'fit-content',
+      'max-width': '50%'
     };
     return styles;
 
+  }
+
+
+
+
+  setMyStylesContent(){
+    let styles = {
+      'margin': '0%',
+      'padding': '0%',
+      'background-image': 'url("assets/scorrimento.png")', 
+      'background-size': '100% 100%',
+      'background-position': 'center',
+      //'background-size': 'contain',
+      'height' : '100%'
+    };
+    return styles;
   }
 
 

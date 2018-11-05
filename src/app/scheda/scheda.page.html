@@ -3,7 +3,18 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title style="text-align: center">Scheda</ion-title>
+    <table style="width: 100%; table-layout: fixed">
+      <tr>
+        <td>
+            <a href="/tabs/(home:home)"><img  src="assets/undo.png"></a>
+        </td>
+        <td>
+            <ion-title style="text-align: center">Scheda</ion-title>
+        </td>
+        <td style="width: 33%">
+        </td>
+      </tr>
+    </table>
   </ion-toolbar>
 </ion-header>
 
@@ -13,53 +24,94 @@
 
 
 
-<div 
-[ngStyle]="setMyStyles()"
+<div [ngStyle]="setMyStyles()">
 
->
-
-<a href="/tabs/(scheda:scheda)">dsafsdf</a>
+  <!--
+<a href="/tabs/(scheda:scheda)">dsafsdf</a> -->
 
  <!-- <img style="padding: 0%; margin: -1%;" src="{{atleta.pathImage}}">
 -->
+  <div [ngStyle]="setStyleAtleta()">
 
+    <div [ngStyle]="setMyStylesSuperiore()">
+
+        <table style="width: 100%; table-layout: fixed;">
+            <tr>
+              <td style="width: 5%">
+                  <p class="gare"> {{categoria}} </p>
+              </td>
+
+              <td style="width: 1%">
+              </td>
+
+              <td style="width: 33%">
+                  <p class="gare" style=" margin: 0%; text-align: right; color: white;"> Nome: {{atleta.userName}}  {{atleta.userName}} </p>
+              </td>
+            </tr>
+          </table>
+
+
+
+       
+    </div>
+
+
+      <div  [ngStyle]="setMyStylesLaterale()">
+        <div style="padding: 20px">
+            <p class="gare">Gare migliori</p>
+            <p class="gare">{{atleta.gare[0].nomeGara}} ({{atleta.gare[0].categoria}}): {{atleta.gare[0].tempo}} {{atleta.gare[0].lunghezza}}</p>
+            <p class="gare">{{atleta.gare[1].nomeGara}} ({{atleta.gare[1].categoria}}): {{atleta.gare[1].tempo}} {{atleta.gare[1].lunghezza}}</p>
+            <p class="gare">{{atleta.gare[2].nomeGara}} ({{atleta.gare[2].categoria}}): {{atleta.gare[2].tempo}} {{atleta.gare[2].lunghezza}}</p>
+            <p class="gare">{{atleta.gare[3].nomeGara}} ({{atleta.gare[3].categoria}}): {{atleta.gare[3].tempo}} {{atleta.gare[3].lunghezza}}</p>
+        </div>
+      </div>
+
+
+      <div [ngStyle]="setMyStylesInferiore()">
+          <p class="gare"> Soprannome: #{{atleta.userName}} </p>
+      </div>
+
+
+
+
+
+
+
+   </div>
 </div>
 
-<div>
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
-{{atleta.userName}}
+
+
+
+<div [ngStyle]="setMyStylesContent()">
+
+<br>
+
+    <p class="content" style="text-align: center">{{atleta.nome}} {{atleta.cognome}}  {{atleta.dataNascita}}</p>
+
+    <p class="content" style="text-align: center">Anni Master: {{2018 - atleta.annoIscrizione}}</p>
+
+    <p class="content" style="text-align: center">Gare svolte:  {{atleta.gareSvolte}}  Squalifiche: {{atleta.squalifiche}}</p>
+
+    <br>
+
+    <p class="content" style="text-align: center">{{atleta.descrizione}}</p>
+
+    <br>
+
+    <p class="content" style="text-align: center">ALL RECORDS</p>
+
+    <br>
+
+    <p class="content" *ngFor="let g of atleta.gare">{{g.nomeGara}} ({{g.categoria}}): {{g.tempo}} {{g.lunghezza}} </p>
+
+
+
   
 
 </div>
+ 
 
-<ion-tabs>
-  <ion-tab label="Records" icon="home" href="/tabs/(home:home)">
-    <ion-router-outlet name="home"></ion-router-outlet>
-  </ion-tab>
-  <ion-tab label="Records Societari" icon="information-circle" href="/tabs/(about:about)">
-    <ion-router-outlet name="about"></ion-router-outlet>
-  </ion-tab>
-  <ion-tab label="Download PDF" icon="contacts" href="/tabs/(contact:contact)">
-    <ion-router-outlet name="contact"></ion-router-outlet>
-  </ion-tab>
-  <ion-tab label="Comunicazioni" icon="contacts" href="/tabs/(scheda:scheda)">
-    <ion-router-outlet name="scheda"></ion-router-outlet>
-  </ion-tab>
-</ion-tabs>
-
-  
 
 </ion-content>
 
