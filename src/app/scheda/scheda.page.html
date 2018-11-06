@@ -56,15 +56,70 @@
     </div>
 
 
+
+<table style="width: 100%; table-layout: fixed;">
+
+
+
+  <tr>
+     <td style="width: 60%">
+     </td>
+
+     <td style="width: 50%">
+        <div>
+            <div style="margin-top: 10%; border: 2px solid #e35f4e; border-radius: 15px; width: fit-content; max-width: 100%; min-width: 100%;">
+                <table style="padding:0%; width: 100%; table-layout: fixed;  border-radius: 15px; background-color: darkblue;">
+                    <tr>
+                      <td></td>
+                      <td><span class="oro"></span></td>
+                      <td><span class="argento"></span></td>
+                      <td><span class="bronzo"></span></td>
+                    </tr>
+  
+                    <tr>
+                        <td><p class="content">Si</p></td>
+                        <td><p class="content">{{atleta.medaglieOro}}</p></td>
+                        <td><p class="content">{{atleta.medaglieArgento}}</p></td>
+                        <td><p class="content">{{atleta.medaglieBronzo}}</p></td>
+                      </tr>
+  
+                      <tr>
+                          <td><p class="content">St</p></td>
+                          <td><p class="content">{{atleta.medaglieOroStaff}}</p></td>
+                          <td><p class="content">{{atleta.medaglieArgentoStaff}}</p></td>
+                          <td><p class="content">{{atleta.medaglieBronzoStaff}}</p></td>
+                        </tr>
+  
+                  </table>
+            </div>
+          </div>
+      </td>
+  </tr>
+
+
+
+
+  <tr>
+
+    <td style="width: 60%">
+
       <div  [ngStyle]="setMyStylesLaterale()">
         <div style="padding: 20px">
-            <p class="gare">Gare migliori</p>
-            <p class="gare">{{atleta.gare[0].nomeGara}} ({{atleta.gare[0].categoria}}): {{atleta.gare[0].tempo}} {{atleta.gare[0].lunghezza}}</p>
-            <p class="gare">{{atleta.gare[1].nomeGara}} ({{atleta.gare[1].categoria}}): {{atleta.gare[1].tempo}} {{atleta.gare[1].lunghezza}}</p>
-            <p class="gare">{{atleta.gare[2].nomeGara}} ({{atleta.gare[2].categoria}}): {{atleta.gare[2].tempo}} {{atleta.gare[2].lunghezza}}</p>
-            <p class="gare">{{atleta.gare[3].nomeGara}} ({{atleta.gare[3].categoria}}): {{atleta.gare[3].tempo}} {{atleta.gare[3].lunghezza}}</p>
+            <p class="gareMigliori">Gare migliori</p>
+            <p class="gareMigliori">{{atleta.gare[0].nomeGara}} ({{atleta.gare[0].categoria}}): {{atleta.gare[0].tempo}} {{atleta.gare[0].lunghezza}}</p>
+            <p class="gareMigliori">{{atleta.gare[1].nomeGara}} ({{atleta.gare[1].categoria}}): {{atleta.gare[1].tempo}} {{atleta.gare[1].lunghezza}}</p>
+            <p class="gareMigliori">{{atleta.gare[2].nomeGara}} ({{atleta.gare[2].categoria}}): {{atleta.gare[2].tempo}} {{atleta.gare[2].lunghezza}}</p>
+            <p class="gareMigliori">{{atleta.gare[3].nomeGara}} ({{atleta.gare[3].categoria}}): {{atleta.gare[3].tempo}} {{atleta.gare[3].lunghezza}}</p>
         </div>
       </div>
+
+    </td>
+
+    <td style="width: 50%">
+    </td>
+
+      </tr>
+      </table>
 
 
       <div [ngStyle]="setMyStylesInferiore()">
@@ -87,11 +142,11 @@
 
 <br>
 
-    <p class="content" style="text-align: center">{{atleta.nome}} {{atleta.cognome}}  {{atleta.dataNascita}}</p>
+    <p class="content" style="text-align: center">{{atleta.nome}} {{atleta.cognome}}  <span style="color: sandybrown">{{atleta.dataNascita}}</span></p>
 
-    <p class="content" style="text-align: center">Anni Master: {{2018 - atleta.annoIscrizione}}</p>
+    <p class="content" style="text-align: center">Anni Master: <span style="color: sandybrown">{{2018 - atleta.annoIscrizione}}</span></p>
 
-    <p class="content" style="text-align: center">Gare svolte:  {{atleta.gareSvolte}}  Squalifiche: {{atleta.squalifiche}}</p>
+    <p class="content" style="text-align: center">Gare svolte:  <span style="color: sandybrown">{{atleta.gareSvolte}}</span>  Squalifiche: <span style="color: sandybrown">{{atleta.squalifiche}}</span></p>
 
     <br>
 
@@ -99,7 +154,7 @@
 
     <br>
 
-    <p class="content" style="text-align: center">ALL RECORDS</p>
+    <p class="content" style="text-align: center"><span style="color: sandybrown">ALL RECORDS</span></p>
 
     <br>
 

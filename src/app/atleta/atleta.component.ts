@@ -21,7 +21,7 @@ export class AtletaComponent {
     public squalifiche = 0;
     public medaglieArgento = 0;
     public medaglieBronzo = 0;
-    public medagleOro = 0;
+    public medaglieOro = 0;
     public medaglieArgentoStaff = 0;
     public medaglieBronzoStaff = 0;
     public medagleOrostaff = 0;
@@ -58,7 +58,7 @@ export class AtletaComponent {
       try{this.squalifiche = atl.squalifiche;} catch(err){}
       try{this.medaglieArgento = atl.medaglieArgento;} catch(err){}
       try{this.medaglieBronzo = atl.medaglieBronzo;} catch(err){}
-      try{this.medagleOro = atl.medagleOro;} catch(err){}
+      try{this.medaglieOro = atl.medaglieOro;} catch(err){}
       try{this.medaglieArgentoStaff = atl.medaglieArgentoStaff;} catch(err){}
       try{this.medaglieBronzoStaff = atl.medaglieBronzoStaff;} catch(err){}
       try{this.medagleOrostaff = atl.medagleOrostaff;} catch(err){}

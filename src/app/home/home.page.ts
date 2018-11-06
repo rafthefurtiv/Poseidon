@@ -43,9 +43,6 @@ export class HomePage {
 
 
   insert(){
- 
-    console.log('Nome database: ' + this.db.database.app.database.length);
-
     var atl1 = AtletaComponent.makeAtletaProva();
 
     var savedAtl = this.db.list('atleti');
@@ -53,11 +50,6 @@ export class HomePage {
     atl1.userName = atl1.userName + Math.floor(Math.random()*20)+1;
 
     savedAtl.set(atl1.userName, atl1);
-    
-    console.log('Atleta: ' + atl1.toString());
-
-   // var atleti = this.db.
-    console.log('Insert di un atleta.');
   }
 
 
@@ -173,7 +165,6 @@ export class HomePage {
 
   public toScheda(atl: string){
     this.schedaService.atleta = this.atleti[atl];
-    console.log("Debug 1: " + atl);
     this.navCtrl.navigateForward('scheda');
     }
 

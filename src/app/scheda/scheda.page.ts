@@ -122,7 +122,7 @@ export class SchedaPage implements OnInit {
       'background-repeat': 'no-repeat', 
       'background-size': '100% 100%',
       'width': 'fit-content',
-      'max-width': '50%'
+      'max-width': '100%'
     };
     return styles;
 
