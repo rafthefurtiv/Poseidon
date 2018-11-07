@@ -11,6 +11,8 @@ import { ContactPageModule } from '../contact/contact.module';
 import { AboutPageModule } from '../about/about.module';
 import { HomePageModule } from '../home/home.module';
 import { SchedaPageModule } from '../scheda/scheda.module';
+import { LoginPage } from '../login/login.page';
+
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { SchedaPageModule } from '../scheda/scheda.module';
     HomePageModule,
     AboutPageModule,
     ContactPageModule,
-    SchedaPageModule
+    SchedaPageModule,
+    LoginPage
   ],
   declarations: [TabsPage]
 })

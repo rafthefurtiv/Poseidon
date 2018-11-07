@@ -19,6 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environment';
 import { NavController } from '@ionic/angular';
 
+import { LoginPage } from './login/login.page';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import { NavController } from '@ionic/angular';
   entryComponents: [],
   imports: [
     HttpClientModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BrowserModule, IonicModule.forRoot(), AppRoutingModule],
@@ -33,6 +37,7 @@ import { NavController } from '@ionic/angular';
     HttpClient,
     StatusBar,
     SplashScreen,
+    AngularFireAuthModule,
    // NavController,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

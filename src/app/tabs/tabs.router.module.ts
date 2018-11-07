@@ -6,6 +6,7 @@ import { HomePage } from '../home/home.page';
 import { AboutPage } from '../about/about.page';
 import { ContactPage } from '../contact/contact.page';
 import { SchedaPage } from '../scheda/scheda.page';
+import { LoginPage } from '../login/login.page';
 
 const routes: Routes = [
   {
@@ -34,11 +35,14 @@ const routes: Routes = [
       }
     ]
   },
-  {
+  {/*
     path: '',
     redirectTo: '/tabs/(home:home)',
     pathMatch: 'full'
-  },  
+    */
+   path: '',
+   component: LoginPage
+  },
   {
     path: 'scheda',
     component: SchedaPage

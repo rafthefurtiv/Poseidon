@@ -89,4 +89,96 @@ export class AtletaComponent {
 
 
 
+    public static getCategoria(atl: AtletaComponent){
+
+      let date = new Date(atl.dataNascita);
+      let settembre = new Date();
+
+      if (settembre.getMonth() < 9) {
+        settembre.setFullYear(settembre.getFullYear() - 1); // per conteggiare l'anno di Settembre
+      }
+
+
+      let anni = settembre.getFullYear() - date.getFullYear();
+      anni += 1;
+
+      if(anni >= 55){
+        return "M55";
+      } else if(anni >= 50){
+        return "M50";
+      } else if(anni >= 45){
+        return "M45";
+      } else if(anni >= 40){
+        return "M40";
+      } else if(anni >= 35){
+        return "M35";
+      } else if(anni >= 30){
+        return "M30";
+      } else if(anni >= 25){
+        return "M25";
+      } else if(anni >= 20){
+        return "M20";
+      } else {
+        return "U20";
+      }
+
+
+
+    }
+
+
+
+
+
+    /*
+    
+    	public static string getCategoriaString(string data){
+		//this.dataNascita.Split("-", 3);
+		if (data == null) {return "NC";}
+		if (data.CompareTo("") == 0) {return "NC";}
+		//Debug.Log ("Data: "+ data);
+		System.DateTime date = System.DateTime.Parse (data);
+		System.DateTime settembre = System.DateTime.Now;
+		//Debug.Log ("Data: "+ date.Day + "/" + date.Month + "/" + date.Year);
+		if (settembre.Month < 9) {
+			settembre = settembre.AddYears (-1); // per conteggiare l'anno di Settembre
+		}
+
+		//System.TimeSpan date_scarto = settembre.Subtract (date);
+		//int anni = (int) date_scarto.TotalDays / 365;
+
+		int anni = settembre.Year - date.Year;
+
+
+
+		anni += 1; // per la regola dell'anno solare successivo.
+		//Debug.Log ("Differenza: " + anni);
+
+		if(anni >= 55){
+			return "M55";
+		} else if(anni >= 50){
+			return "M50";
+		} else if(anni >= 45){
+			return "M45";
+		} else if(anni >= 40){
+			return "M40";
+		} else if(anni >= 35){
+			return "M35";
+		} else if(anni >= 30){
+			return "M30";
+		} else if(anni >= 25){
+			return "M25";
+		} else if(anni >= 20){
+			return "M20";
+		} else {
+			return "U20";
+		}
+	//	Debug.Log ("data scarto: " + (date_scarto.TotalDays/365).ToString());
+
+	}
+    
+    */
+
+
+
 }

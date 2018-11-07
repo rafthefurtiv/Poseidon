@@ -1,0 +1,49 @@
+<ion-header>
+
+    <ion-toolbar>
+      <ion-title style="margin-left: 0; text-align: center;">LOGIN</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  
+  
+  
+  
+  
+  <ion-content>
+  
+    
+      <div style="min-height: 100%; background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255,255,255, 0.7)), url('assets/sfondo2.png'), url('assets/sfondo1.png'); padding: 0; padding-top: 2%; margin: 0%; background-size: 100%;">
+
+        <div>
+      <ion-input style="margin-bottom: 0px; background-color: rgb(255, 255, 255);" placeholder="EMAIL" class="login-button" text-center type="email" required [(ngModel)]="credentials.email" name="credentials"></ion-input>
+    <p *ngIf="loginError.emailError != ''" class="isa_error near">{{loginError.emailError}}</p>
+      </div>
+
+      <div>
+    <ion-input style="margin-bottom: 0px; background-color: rgb(255, 255, 255);" placeholder="PASSWORD" class="login-button" text-center type="password" required [(ngModel)]="credentials.password" name="credentials"></ion-input>
+    <p *ngIf="loginError.passwordError != ''" class="isa_error near">{{loginError.passwordError}}</p>
+    </div>  
+  
+    <div style="text-align: center; margin-top: 70%; padding: 0%;">
+        <ion-button primary (click)="logIn()"  class="button"> Log In </ion-button>
+    </div>
+  
+    </div>
+
+  </ion-content>
+  
+  
+  <style>/*
+  ion-content {background-color:rgba(2, 119, 189, 0.1);}
+  */
+  footer {
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 100%;
+      /*height: 50px;*/
+    }
+    
+  </style>

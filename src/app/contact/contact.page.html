@@ -1,23 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Contact
+    <ion-title style="text-align: center;">
+      RISULTATI
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>
-        Follow us on Twitter
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+    <div style="min-height: 100%; background: url('assets/sfondo2.png'), url('assets/sfondo1.png'); padding: 0; padding-top: 2%; margin: 0%; background-size: 100%;">
+
+      <table style="width: 100%; margin-top: 5%;">
+  <tr class="pdf" *ngFor="let p of res.pdfs; let i = index;" >
+
+    <td style="width: 50%;">
+      <p>{{p.nomeFile}}</p>
+    </td>
+
+    <td style="width: 50%;">
+      <a (click)="open(p.pathFile)" style="color: white; font-size: 200%;" href="{{p.pathFile}}" >
+        <ion-icon icon="download">  </ion-icon>
+      </a>
+    </td>
+  
+  </tr>
+  </table>
+
+    </div>
+
 </ion-content>

@@ -15,7 +15,7 @@ export class SchedaPage implements OnInit {
   atleta: AtletaComponent;
 
   categoria;
-
+  anno;
   urlImage;
 
   constructor(//public navCtrl: NavController,
@@ -37,17 +37,10 @@ export class SchedaPage implements OnInit {
     this.atleta = this.schedaService.atleta;
 
 
-    this.categoria = this.calcolaCategoria();
+    this.categoria = AtletaComponent.getCategoria(this.atleta);
+
+    //this.anno = (new Date()).getFullYear();
   }
-
-
-  calcolaCategoria(){
-
-
-
-    return 'M30';
-  }
-
 
 
   setMyStyles(){
