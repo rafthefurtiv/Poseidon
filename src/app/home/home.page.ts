@@ -22,6 +22,8 @@ import { SchedaProviderService } from '../scheda-provider.service';
 })
 export class HomePage {
 
+  admin = true;
+
   atleta = new AtletaComponent();
 
   atleti = [];
@@ -29,6 +31,8 @@ export class HomePage {
   atlKey = [];
 
   message = '';
+
+  nomeUtente = "";
 
 
   constructor(public db: AngularFireDatabase, 
@@ -48,6 +52,8 @@ export class HomePage {
     var savedAtl = this.db.list('atleti');
 
     atl1.userName = atl1.userName + Math.floor(Math.random()*20)+1;
+
+    atl1.userName = this.nomeUtente;
 
     savedAtl.set(atl1.userName, atl1);
   }
@@ -88,7 +94,7 @@ export class HomePage {
   addGara(){
     var savedAtl = new AtletaComponent();
     //var tempAtl = new AtletaComponent();
-    this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/UtProva.json').subscribe(
+    this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/'+this.nomeUtente+'.json').subscribe(
     response => {
       savedAtl = JSON.parse(JSON.stringify(response));
 

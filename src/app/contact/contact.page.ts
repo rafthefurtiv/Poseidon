@@ -36,6 +36,7 @@ export class ContactPage {
 
 
   open(url: string){
+    
     window.open(url,'_system', 'location=yes');
   }
 

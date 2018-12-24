@@ -28,13 +28,12 @@
   <img (click)="toScheda(key)" *ngFor="let key of atlKey; let i = index" src="{{atleti[key].pathCover}}" alt="{{atleti[key].userName}}" width="25%">
 </a> 
 
-<div>
+<div *ngIf="admin">
   <ion-button primary (click)="insert()"  class="button"> Insert </ion-button>
 
+  <ion-input style="margin-bottom: 0px; background-color: rgb(255, 255, 255);" placeholder="nomeUtente" class="login-button" text-center required [(ngModel)]="nomeUtente" name="nomeUtente"></ion-input>
 
   <ion-button primary (click)="addGara()" class="button"> Add Gara </ion-button>
-
-
 </div>
 
 

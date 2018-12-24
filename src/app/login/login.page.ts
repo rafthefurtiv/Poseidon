@@ -39,6 +39,9 @@ export class LoginPage implements OnInit {
     
     this.loginErrorReset();
 
+
+    
+
     /*
 		this.loginForm = this.fb.group({
 			email: ['', Validators.compose([Validators.required, Validators.email])],
