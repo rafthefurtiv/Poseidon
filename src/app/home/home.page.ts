@@ -33,6 +33,7 @@ export class HomePage {
   message = '';
 
   nomeUtente = "";
+  ricerca = "";
 
 
   constructor(public db: AngularFireDatabase, 
@@ -141,11 +142,10 @@ export class HomePage {
     this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/.json').subscribe(
     response => {
       tempAtleti = JSON.parse(JSON.stringify(response));
+      console.log("Numero atleti debug: " + JSON.stringify(response));
 
-      //console.log(JSON.stringify(response));
-      console.log(tempAtleti['UtProva'].pathCover);
 
-      Object.keys(tempAtleti).forEach(key=> {
+      Object.keys(tempAtleti).forEach(key => {
         tempAtleti[key];
         });
 
@@ -156,13 +156,30 @@ export class HomePage {
           this.atleti = tempAtleti;
           this.atlKey = Object.keys(this.atleti);
 
-          console.log(this.atleti.length);
+          console.log("Numero atleti: " + this.atleti.length);
          }
         }
     );
 
   }
 
+
+
+  public ricercaUtente(key: string){
+
+    console.log("chiave: "+this.atleti[key].username);
+
+    if(this.atleti[key].pathCover == null){return false;}
+
+    let sop = this.atleti[key].soprannome.toLowerCase();
+    let ric = this.ricerca.toLowerCase();
+    let nomeCognome = this.atleti[key].nome.toLowerCase() + this.atleti[key].cognome.toLowerCase();
+    if (sop.includes(ric)){return true;}
+    else if (nomeCognome.includes(ric)){return true;}
+    
+    else return false;
+    //return true;
+  }
 
 
 
