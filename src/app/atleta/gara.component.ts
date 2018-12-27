@@ -18,9 +18,9 @@ export class GaraComponent {
     static garaProva(){
         var gara = new GaraComponent();
 
-        gara.categoria = 'M30';
+        gara.categoria = 'M20';
         gara.nomeGara = '100SL';
-        gara.tempo = 33.65;
+        gara.tempo = 0;
         gara.lunghezza = 'V.C.';
 
         return gara;

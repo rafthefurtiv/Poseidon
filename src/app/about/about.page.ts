@@ -23,6 +23,8 @@ export class AboutPage {
   }
 
   recordSocietari = new RecordSocietari();
+  recKey = [];
+
   cat = 'U20';
   ses = 0;
   lun = 0;
@@ -69,7 +71,13 @@ export class AboutPage {
 
         }
         else{
-        recSocTemp.records[recSocTemp.records.length] = Records.createRecordProva();
+        let rec = Records.createRecordProva();
+        let sesso;
+        let lunghezza;
+        if(rec.sesso == 0){sesso = "Maschi";} else {sesso = "Femmine";}
+        if(rec.lunghezza == 0){lunghezza = "Corta";} else {lunghezza = "Lunga";}
+        let key = sesso+"_"+lunghezza+"_"+rec.categoria+"_"+rec.gara;
+        recSocTemp.records[key] = rec;
         this.updateRecordSocietari(recSocTemp);
          }
         }
@@ -83,9 +91,32 @@ export class AboutPage {
 
 
   caricaAll(){
-    this.http.get('https://poseidon-8bcf8.firebaseio.com/recordSocietari/recordSocietari.json').subscribe(
+
+    var temp = [];
+
+    var tempKey = [];
+
+    this.http.get('https://poseidon-8bcf8.firebaseio.com/recordSocietari/recordSocietari/records/.json').subscribe(
     response => {
-      this.recordSocietari = JSON.parse(JSON.stringify(response));
+      temp = JSON.parse(JSON.stringify(response));
+
+      //console.log("debug: "+temp[0].categoria);
+
+      Object.keys(temp).forEach(key => {
+        tempKey[tempKey.length] = key;
+        });
+
+        if(temp == null){
+          console.log('Step null');
+        }
+        else{
+          this.recordSocietari.records = temp;
+          this.recKey = tempKey;
+         }
+
+
+         console.log(this.recKey.length);
+
         }
     );
 

@@ -18,7 +18,7 @@ export class Records {
 
         let recProva = new Records();
 
-        recProva.categoria = 'M25';
+        recProva.categoria = 'M30';
         recProva.gara = '50SL';
         recProva.lunghezza = 0;
         recProva.luogo = '2018 Aversa';

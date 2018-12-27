@@ -142,8 +142,6 @@ export class HomePage {
     this.http.get('https://poseidon-8bcf8.firebaseio.com/atleti/.json').subscribe(
     response => {
       tempAtleti = JSON.parse(JSON.stringify(response));
-      console.log("Numero atleti debug: " + JSON.stringify(response));
-
 
       Object.keys(tempAtleti).forEach(key => {
         tempAtleti[key];
@@ -155,8 +153,6 @@ export class HomePage {
         else{
           this.atleti = tempAtleti;
           this.atlKey = Object.keys(this.atleti);
-
-          console.log("Numero atleti: " + this.atleti.length);
          }
         }
     );
@@ -166,8 +162,6 @@ export class HomePage {
 
 
   public ricercaUtente(key: string){
-
-    console.log("chiave: "+this.atleti[key].username);
 
     if(this.atleti[key].pathCover == null){return false;}
 
