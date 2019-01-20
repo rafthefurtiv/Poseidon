@@ -20,6 +20,9 @@ export class AboutPage {
 
     this.caricaAll();
 
+    // Utilizzare solo la prima volta per l'inizializzazione.
+    //this.createBaseRecordSocietari();
+
   }
 
   recordSocietari = new RecordSocietari();
@@ -85,6 +88,42 @@ export class AboutPage {
 
   }
 
+
+
+
+
+  createBaseRecordSocietari() {
+
+    var recSocTemp = new RecordSocietari();
+
+    this.http.get('https://poseidon-8bcf8.firebaseio.com/recordSocietari/recordSocietari.json').subscribe(
+      response => {
+        recSocTemp = JSON.parse(JSON.stringify(response));
+
+        if (recSocTemp == null) {
+
+        }
+        else {
+          let rec = Records.createRecordProva();
+          rec.tempo = "0";
+          /*let sesso;
+          let lunghezza;
+          if (rec.sesso == 0) { sesso = "Maschi"; } else { sesso = "Femmine"; }
+          if (rec.lunghezza == 0) { lunghezza = "Corta"; } else { lunghezza = "Lunga"; }
+          */
+          //let key = sesso+"_"+lunghezza+"_"+rec.categoria+"_"+rec.gara;
+          let keys = Records.createBaseRecordSocietari();
+          for (let k of keys) {
+            //if(k.substring(0))
+            recSocTemp.records[k] = rec;
+          }
+
+          this.updateRecordSocietari(recSocTemp);
+        }
+      }
+    );
+
+  }
 
 
 
