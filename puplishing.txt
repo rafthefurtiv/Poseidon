@@ -1,0 +1,12 @@
+Posizionarsi in Poseidon/Poseidon
+
+ionic cordova build --release android
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore barbato.keystore C:\\Users\\Raffaele\\Poseidon\\Poseidon\\platforms\\android\\app\\build\\outputs\\apk\\release\\app-release-unsigned.apk barbato
+
+zipalign -v 4 C:\\Users\\Raffaele\\Poseidon\\Poseidon\\platforms\\android\\app\\build\\outputs\\apk\\release\\app-release-unsigned.apk C:\\Users\\Raffaele\\Poseidon\\Poseidon\\platforms\\android\\app\\build\\outputs\\apk\\release\\Poseidon.apk
+
+
+
+C:\Users\Raffaele\Poseidon\Poseidon\platforms\android\app\build\outputs\apk\release\
+
