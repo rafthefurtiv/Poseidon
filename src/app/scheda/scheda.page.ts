@@ -39,7 +39,7 @@ export class SchedaPage implements OnInit {
 
     this.categoria = AtletaComponent.getCategoria(this.atleta);
 
-    //this.anno = (new Date()).getFullYear();
+    this.anno = (new Date()).getFullYear();
   }
 
 
