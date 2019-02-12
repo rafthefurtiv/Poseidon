@@ -8,6 +8,8 @@ import { Records } from './records';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-about',
@@ -16,15 +18,22 @@ import { HttpModule } from '@angular/http';
 })
 export class AboutPage {
 
-  constructor(public http: HttpClient, public db: AngularFireDatabase){
+  constructor(public http: HttpClient, public db: AngularFireDatabase, public authService: AuthService){
 
+        // non funziona bene, da verificare.
+        if (authService != null && authService != undefined) {
+          if (authService.mail == "rafthefurtiv@gmail.com" || authService.mail == "gaetano-cerullo@libero.it") {
+            this.admin = true;
+          }
+        }
+        
     this.caricaAll();
 
     // Utilizzare solo la prima volta per l'inizializzazione.
     //this.createBaseRecordSocietari();
 
   }
-
+  admin = false;
   recordSocietari = new RecordSocietari();
   recKey = [];
 

@@ -20,7 +20,7 @@
 
   <div style="text-align: center;">
     <p class="gare" style="padding: 3%; background-image: linear-gradient(#353faa, transparent);">ALLENATORE</p>
-    <img  (click)="toScheda(atleta.pathCover)" src="{{atleta.pathCover}}" alt="Smiley face" width="25%">
+    <img  (click)="toScheda('DinoDianaDangiolella')" src="{{atleti['DinoDianaDangiolella'].pathCover}}" alt="{{atleti['DinoDianaDangiolella'].userName}}" width="35%">
   </div>
 
   <div style="text-align: center;">
@@ -28,7 +28,7 @@
   </div>
 <a>
   <a *ngFor="let key of atlKey; let i = index"> 
-      <img (click)="toScheda(key)" *ngIf="ricercaUtente(key)"  src="{{atleti[key].pathCover}}" alt="{{atleti[key].userName}}" width="25%">
+      <img (click)="toScheda(key)" *ngIf="ricercaUtente(key) && key!='DinoDianaDangiolella'"  src="{{atleti[key].pathCover}}" alt="{{atleti[key].userName}}" width="25%">
   </a>
 </a> 
 

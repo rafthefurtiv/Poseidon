@@ -59,8 +59,6 @@ export class LoginPage implements OnInit {
   logIn(){
     this.loginErrorReset();
 
-    console.log(this.credentials);
-
 		this.auth.signInWithEmail(this.credentials)
 			.then(
 				() => {

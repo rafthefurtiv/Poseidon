@@ -142,11 +142,11 @@
 
 <br>
 
-    <p class="content" style="text-align: center">{{atleta.nome}} {{atleta.cognome}}  <span style="color: sandybrown">{{atleta.dataNascita}}</span></p>
+    <p class="content" style="text-align: center">{{atleta.nome}} {{atleta.cognome}}  <span style="color: orangered">{{atleta.dataNascita}}</span></p>
 
-    <p class="content" style="text-align: center">Anni Master: <span style="color: sandybrown">{{anno - atleta.annoIscrizione}}</span></p>
+    <p class="content" style="text-align: center">Anni Master: <span style="color: orangered">{{anno - atleta.annoIscrizione}}</span></p>
 
-    <p class="content" style="text-align: center">Gare svolte:  <span style="color: sandybrown">{{atleta.gareSvolte}}</span>  Squalifiche: <span style="color: sandybrown">{{atleta.squalifiche}}</span></p>
+    <p class="content" style="text-align: center">Gare svolte:  <span style="color: orangered">{{atleta.gareSvolte}}</span>  Squalifiche: <span style="color: orangered">{{atleta.squalifiche}}</span></p>
 
     <br>
 
@@ -154,12 +154,13 @@
 
     <br>
 
-    <p class="content" style="text-align: center"><span style="color: sandybrown">ALL RECORDS</span></p>
+    <p class="content" style="text-align: center"><span style="color: orangered">ALL RECORDS</span></p>
 
     <br>
 
-    <p class="content" *ngFor="let g of atleta.gare">{{g.nomeGara}} ({{g.categoria}}): {{g.tempo}} {{g.lunghezza}} </p>
-
+    <a *ngFor="let g of atleta.gare"> 
+    <p class="content" *ngIf="g.tempo != 0">{{g.nomeGara}} <span style="color: orangered">({{g.categoria}}):</span> {{g.tempo}} <span style="color: orangered">{{g.lunghezza}}</span> </p>
+    </a>
 
 
   

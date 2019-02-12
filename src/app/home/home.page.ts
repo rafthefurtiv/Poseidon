@@ -14,6 +14,7 @@ import { SchedaPage } from '../scheda/scheda.page';
 
 import { SchedaProviderService } from '../scheda-provider.service';
 
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ import { SchedaProviderService } from '../scheda-provider.service';
 })
 export class HomePage {
 
-  admin = true;
+  admin = false;
 
   atleta = new AtletaComponent();
 
@@ -39,9 +40,18 @@ export class HomePage {
   constructor(public db: AngularFireDatabase, 
     public http: HttpClient,
     public navCtrl: NavController,
-    public schedaService: SchedaProviderService
+    public schedaService: SchedaProviderService,
+    public authService: AuthService
   ){
-
+    
+    // non funziona bene, da verificare.
+    if (authService != null && authService != undefined) {
+      if (authService.mail == "rafthefurtiv@gmail.com" || authService.mail == "gaetano-cerullo@libero.it") {
+        this.admin = true;
+      }
+    }
+    
+    //console.log("Log in by: " + authService.getUserMail());
     this.caricaAll();
 
   }
@@ -182,6 +192,7 @@ export class HomePage {
 
   public toScheda(atl: string){
     this.schedaService.atleta = this.atleti[atl];
+    console.log(this.schedaService.atleta)
     this.navCtrl.navigateForward('scheda');
     }
 

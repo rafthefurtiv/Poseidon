@@ -132,7 +132,7 @@ export class SchedaPage implements OnInit {
       'background-size': '100% 100%',
       'background-position': 'center',
       //'background-size': 'contain',
-      'height' : '100%'
+      //'height' : '100%'
     };
     return styles;
   }

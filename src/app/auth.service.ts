@@ -9,13 +9,16 @@ export class AuthService {
 
   private user: firebase.User;
 
+  public mail = "";
+
   constructor(
     public http: HttpClient,
     public afAuth: AngularFireAuth
   ) {
 
     afAuth.authState.subscribe(user => {
-			this.user = user;
+      this.user = user;
+      this.mail = user.email;
     });
 
    }
@@ -35,6 +38,8 @@ export class AuthService {
 		return this.afAuth.auth.currentUser.email;
   }
 
-
+  getUserMailSaved(){
+		return this.user.email;
+  }
 
 }

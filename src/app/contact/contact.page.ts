@@ -29,6 +29,19 @@ export class ContactPage {
     this.http.get('https://poseidon-8bcf8.firebaseio.com/risultati.json').subscribe(
     response => {
       this.res = JSON.parse(JSON.stringify(response));
+      let tempArr = new  Risultati();
+      tempArr.pdfs = [];
+      let i = 0;
+      for (let k of this.res.pdfs) {
+        tempArr.pdfs[i] = k;
+      }
+      i = this.res.pdfs.length-1;
+      for (let k of this.res.pdfs) {
+        console.log(k.nomeFile)
+        tempArr.pdfs[i] = k;
+        i--;
+      }
+      this.res = tempArr;
         }
     );
   }
