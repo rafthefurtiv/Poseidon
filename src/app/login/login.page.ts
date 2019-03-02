@@ -10,6 +10,8 @@ import { NgModule } from '@angular/core';
 import { HomePage } from '../home/home.page';
 
 import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-login',
@@ -34,9 +36,22 @@ export class LoginPage implements OnInit {
   constructor(
     //public fb: FormBuilder,
     private auth: AuthService,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private storage: Storage
   ) {
-    
+
+    var tempUser = ""
+    storage.get('email').then((val) => {
+      tempUser = val;
+      this.credentials.email = val;
+      console.log("sTORAGE USERNAME: " + val);
+    });
+
+    storage.get('password').then((val) => {
+      this.credentials.password = val;
+      console.log("Storage Password: " + val);
+    });
+
     this.loginErrorReset();
 
 
@@ -62,6 +77,10 @@ export class LoginPage implements OnInit {
 		this.auth.signInWithEmail(this.credentials)
 			.then(
 				() => {
+          // Save credentials
+          this.storage.set('email', this.credentials.email);
+          this.storage.set('password', this.credentials.password);
+
           this.navCtrl.navigateForward('/tabs/(home:home)');
           //this.navCtrl.setRoot(HomePage);
         },
@@ -91,10 +110,11 @@ export class LoginPage implements OnInit {
 
 
   loginErrorReset(){
-    this.loginError = {
-       "emailError" : "",
-       "passwordError" : ""
-     };
+     this.loginError = {
+      "emailError" : "",
+      "passwordError" : ""
+    };
+
    }
 
 

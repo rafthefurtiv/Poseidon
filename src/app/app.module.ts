@@ -22,7 +22,7 @@ import { NavController } from '@ionic/angular';
 import { LoginPage } from './login/login.page';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 
-
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +32,9 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    IonicStorageModule.forRoot()
+  ],
   providers: [
     HttpClient,
     StatusBar,
