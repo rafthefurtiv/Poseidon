@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="it.barbato.poseidon" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<?xml version='27.0' encoding='utf-8'?>
+<widget id="it.barbato.poseidon" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>poseidon</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="rafthefurtiv@gmail.com" href="http://ionicframework.com/">Raffaele Barbato</author>
@@ -83,6 +83,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
-    <engine name="android" spec="7.1.1" />
     <plugin name="cordova-sqlite-storage" spec="3.1.0" />
+    <engine name="android" spec="7.1.1" />
 </widget>
